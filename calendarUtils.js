@@ -1,3 +1,6 @@
+import React from 'react';
+import { Days, Months } from './calendarUtils';
+
 const Days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const Months = [
   {

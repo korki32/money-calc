@@ -26,7 +26,7 @@ window.onload = function () {
   let calendarTodayButton = document.getElementsByClassName(
     "calendar-today-button"
   )[0];
-  calendarTodayButton.textContent = `Today ${todaysDate}`;
+  calendarTodayButton.textContent = `Ma ${todaysDate}`;
 
   calendarTodayButton.addEventListener("click", () => {
     generateCalendarDays(currentDate);

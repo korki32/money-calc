@@ -1,4 +1,4 @@
-const weekArray = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
+const weekArray = ["Vas", "Hét", "Ked", "Sze", "Csü", "Pén", "Szo"];
 const monthArray = [
   "Január",
   "Február",

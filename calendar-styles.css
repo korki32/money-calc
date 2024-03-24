@@ -4,16 +4,6 @@
   margin: 0;
 }
 
-html,
-body {
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  font-family: "Roboto", sans-serif;
-}
-
 .calendar-container {
   height: auto;
   width: 400px;

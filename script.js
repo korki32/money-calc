@@ -156,25 +156,3 @@ function removeAllChildren(parent) {
     parent.removeChild(parent.firstChild);
   }
 }
-// Beállítások mentése
-function saveSettings() {
-    // Ide írhatod a beállítások mentésének kódját
-}
-
-// Fizetés kiszámítása
-function calculatePayment() {
-    // Ide írhatod a fizetés kiszámításának kódját
-}
-
-// Eseménykezelők hozzáadása oldal betöltéskor
-window.onload = function() {
-    showCalendar(); // Minden funkció hívódik meg az oldal betöltésekor
-    // Beállítások mentése gombra kattintáskor
-    document.getElementById('save-settings-btn').onclick = function() {
-        saveSettings();
-    }
-    // Fizetés kiszámítása gombra kattintáskor
-    document.getElementById('calculate-payment-btn').onclick = function() {
-        calculatePayment();
-    }
-}

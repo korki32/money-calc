@@ -1,86 +1,114 @@
-/* Naptár */
-#calendar-container table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap") * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-#calendar-container tr,
-#calendar-container td {
-    border: 1px solid rgba(200, 200, 200, 0.5);
-    padding: 10px;
-    font-weight: 600;
+html,
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
 }
 
-#calendar-container .calendar-month-prev,
-#calendar-container .calendar-month-next {
-    background-color: rgba(200, 200, 200, 0.3);
+.calendar-container {
+  height: auto;
+  width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
+  padding: 20px 20px;
 }
 
-#calendar-container .calendar-days-tr {
-    background: #7474BF;
-    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);
-    background: linear-gradient(to right, #348AC7, #7474BF);
-    color: #fff;
+.calendar-week {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  padding-inline-start: 0px;
 }
 
-#calendar-container .calendar-day {
-    height: 10vh;
+.calendar-week-day {
+  max-width: 57.1px;
+  width: 100%;
+  text-align: center;
+  color: #525659;
 }
 
-#calendar-container .calendar-toolbar table {
-    width: 100%;
+.calendar-days {
+  margin-top: 30px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding-inline-start: 0px;
 }
 
-#calendar-container .calendar-toolbar .button-group {}
-
-#calendar-container .calendar-toolbar .btn {
-    background-color: #212121;
-    color: #fff;
-    border-radius: 1%;
-    margin: 0px;
-    height: 5vh;
+.calendar-day {
+  text-align: center;
+  color: #525659;
+  padding: 10px;
 }
 
-#calendar-container .calendar-toolbar input {
-    height: 4.9vh;
-    width: 38%;
-    border-top-left-radius: 10px;
-    box-shadow: none;
-    padding: 7px 12px;
-    font-size: 13px;
-    line-height: 1.5384616;
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    transition: border-color ease-in-out .3s, box-shadow ease-in-out .3s;
+.calendar-month-arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-#calendar-container .calendar-toolbar input[type="date"]::-webkit-clear-button {
-    display: none;
+.calendar-month-year-container {
+  padding: 10px 10px 20px 10px;
+  color: #525659;
+  cursor: pointer;
 }
 
-#calendar-container .today {
-    font-size: 12px;
+.calendar-arrow-container {
+  margin-top: -5px;
 }
 
-#calendar-container .calendar-selected-date {
-    background: #56CCF2 !important;
-    background: -webkit-linear-gradient(to right, rgb(80, 143, 226), rgb(108, 205, 238)) !important;
-    background: linear-gradient(to right, rgb(77, 146, 236), rgb(102, 198, 230)) !important;
-    color: #fff;
+.calendar-left-arrow,
+.calendar-right-arrow {
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #525659;
 }
 
-#calendar-container .calendar-holiday-prev,
-#calendar-container .calendar-holiday-next {
-    background-color: rgba(200, 200, 200, 0.3);
+.calendar-today-button {
+  margin-top: -10px;
+  border-radius: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #525659;
+  padding: 5px 10px;
 }
 
-#calendar-container .calendar-holiday-current {
-    background: #fc8b52;
-    background: -webkit-linear-gradient(to right, #fc4d50, #ff9966);
-    background: linear-gradient(to right, #fd5053, #ff9966);
-    color: #fff;
+.calendar-today-button {
+  height: 27px;
+  margin-right: 10px;
+  background-color: #ec7625;
+  color: white;
+}
+
+.calendar-months,
+.calendar-years {
+  flex: 1;
+  border-radius: 10px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #525659;
+  font-size: 15px;
+}
+
+.calendar-day-active {
+  background-color: #ec7625;
+  color: white;
+  border-radius: 50%;
 }

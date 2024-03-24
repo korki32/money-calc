@@ -1,0 +1,45 @@
+/* Alapvető formázás */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Naptár */
+#calendar {
+    margin-bottom: 20px;
+}
+
+/* Beállítások */
+#settings {
+    margin-bottom: 20px;
+}
+
+/* Gombok */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Fizetés kiszámítása eredménye */
+#payment-result {
+    font-weight: bold;
+    font-size: 1.2em;
+}

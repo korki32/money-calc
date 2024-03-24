@@ -1,0 +1,86 @@
+/* Naptár */
+#calendar-container table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+#calendar-container tr,
+#calendar-container td {
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    padding: 10px;
+    font-weight: 600;
+}
+
+#calendar-container .calendar-month-prev,
+#calendar-container .calendar-month-next {
+    background-color: rgba(200, 200, 200, 0.3);
+}
+
+#calendar-container .calendar-days-tr {
+    background: #7474BF;
+    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);
+    background: linear-gradient(to right, #348AC7, #7474BF);
+    color: #fff;
+}
+
+#calendar-container .calendar-day {
+    height: 10vh;
+}
+
+#calendar-container .calendar-toolbar table {
+    width: 100%;
+}
+
+#calendar-container .calendar-toolbar .button-group {}
+
+#calendar-container .calendar-toolbar .btn {
+    background-color: #212121;
+    color: #fff;
+    border-radius: 1%;
+    margin: 0px;
+    height: 5vh;
+}
+
+#calendar-container .calendar-toolbar input {
+    height: 4.9vh;
+    width: 38%;
+    border-top-left-radius: 10px;
+    box-shadow: none;
+    padding: 7px 12px;
+    font-size: 13px;
+    line-height: 1.5384616;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    transition: border-color ease-in-out .3s, box-shadow ease-in-out .3s;
+}
+
+#calendar-container .calendar-toolbar input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+#calendar-container .today {
+    font-size: 12px;
+}
+
+#calendar-container .calendar-selected-date {
+    background: #56CCF2 !important;
+    background: -webkit-linear-gradient(to right, rgb(80, 143, 226), rgb(108, 205, 238)) !important;
+    background: linear-gradient(to right, rgb(77, 146, 236), rgb(102, 198, 230)) !important;
+    color: #fff;
+}
+
+#calendar-container .calendar-holiday-prev,
+#calendar-container .calendar-holiday-next {
+    background-color: rgba(200, 200, 200, 0.3);
+}
+
+#calendar-container .calendar-holiday-current {
+    background: #fc8b52;
+    background: -webkit-linear-gradient(to right, #fc4d50, #ff9966);
+    background: linear-gradient(to right, #fd5053, #ff9966);
+    color: #fff;
+}

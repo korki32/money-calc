@@ -42,21 +42,40 @@ function showCalendar() {
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
 
-    const calendarHTML = `
-        <h2>${months[currentMonth]} ${currentYear}</h2>
-        <table>
-            <thead>
-                <tr>
-                    ${daysOfWeek.map(day => `<th>${day}</th>`).join('')}
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Itt jeleníthetjük meg a naptár napjait JavaScript segítségével -->
-            </tbody>
-        </table>
-    `;
-    
-    calendarContainer.innerHTML = calendarHTML;
+    // Naptár táblázat létrehozása
+    const calendarTable = document.createElement('table');
+
+    // Fejléc létrehozása: napok nevei
+    const headerRow = document.createElement('tr');
+    daysOfWeek.forEach(day => {
+        const th = document.createElement('th');
+        th.textContent = day;
+        headerRow.appendChild(th);
+    });
+    calendarTable.appendChild(headerRow);
+
+    // Naptár napjainak létrehozása
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    let dayOfMonth = 1;
+    for (let i = 0; i < 6; i++) { // Maximum 6 sor lesz a naptárban
+        const weekRow = document.createElement('tr');
+        for (let j = 0; j < 7; j++) {
+            if (dayOfMonth > daysInMonth) {
+                break;
+            }
+            const td = document.createElement('td');
+            td.textContent = dayOfMonth;
+            weekRow.appendChild(td);
+            dayOfMonth++;
+        }
+        calendarTable.appendChild(weekRow);
+        if (dayOfMonth > daysInMonth) {
+            break;
+        }
+    }
+
+    // Hozzáadjuk a táblázatot a konténerhez
+    calendarContainer.appendChild(calendarTable);
 }
 
 // Naptár megjelenítése oldal betöltéskor

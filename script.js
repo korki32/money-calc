@@ -115,10 +115,10 @@ class Calendar extends React.Component {
 
   renderDays() {
     let currentMonth = parseInt(this.state.currentView.getMonth())
-    let currentMonth = this.state.currentView.getMonth();
+    let currentMonth = parseInt(this.state.currentView.getMonth())
     let currentMonthInfo = Months[currentMonth];
-    let prevMonthInfo = Months[currentMonth - 1 < 0 ? Months.length - 1 : currentMonth - 1];
-    let nextMonthInfo = Months[currentMonth + 1 > Months.length - 1 ? 0 : currentMonth + 1];
+    let prevMonthInfo = Months[currentMonth - 1 < 0 ? Months.length - 1 : currentMonth - 1]
+    let nextMonthInfo = Months[currentMonth + 1 > Months.length - 1 ? 0 : currentMonth + 1]
     let currentYear = this.state.currentView.getFullYear();
     let prevMonthYear = currentYear
     let nextMonthYear = currentYear

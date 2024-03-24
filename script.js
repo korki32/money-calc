@@ -1,15 +1,15 @@
 const weekArray = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
 const monthArray = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
+  "Január",
+  "Február",
+  "Március",
+  "Április",
+  "Május",
+  "Június",
+  "Július",
+  "Augusztus",
+  "Szeptember",
+  "Október",
   "November",
   "December"
 ];

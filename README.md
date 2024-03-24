@@ -1,1 +1,1 @@
-# money-calc
+# https://korki32.github.io/money-calc/

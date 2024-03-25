@@ -156,3 +156,38 @@ function removeAllChildren(parent) {
     parent.removeChild(parent.firstChild);
   }
 }
+// Modális ablak megjelenítése
+function showModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+}
+
+// Modális ablak bezárása
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+// Ha a felhasználó kattint a bezárás ikonra vagy a háttérre, zárja be a modális ablakot
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Eseménykezelő a napokhoz
+var days = document.querySelectorAll(".calendar-day");
+days.forEach(function(day) {
+    day.addEventListener("click", function() {
+        showModal();
+    });
+});
+
+// Munkaidő mentése
+var saveButton = document.getElementById("saveButton");
+saveButton.addEventListener("click", function() {
+    var workHours = document.getElementById("workHours").value;
+    console.log("Munkaidő: " + workHours);
+    closeModal(); // Modális ablak bezárása
+});

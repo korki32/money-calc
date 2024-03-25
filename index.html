@@ -6,6 +6,43 @@
     <title>Naptár alkalmazás</title>
     <link rel="stylesheet" href="styles.css"> <!-- CSS fájl hivatkozása -->
     <link rel="stylesheet" href="calendar-styles.css"> <!-- CSS fájl hivatkozása -->
+    <style>
+        /* CSS a modális ablakhoz */
+        .modal {
+            display: none; /* Alapból rejtve van */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Fekete átlátszó háttér */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* CSS a gombnak a modális ablak bezárásához */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,53 +52,63 @@
     <main>
         <!-- Naptár nézet -->
         <section id="calendar">
-                <div class="calendar-container">
-  			<div class="calendar-month-arrow-container">
-   			 <div class="calendar-month-year-container">
-      				<select class="calendar-years"></select>
-     			 	<select class="calendar-months">
-      				</select>
-   		 </div>
-   		 <div class="calendar-month-year">
-   		 </div>
-   		 <div class="calendar-arrow-container">
-    			  <button class="calendar-today-button"></button>
-     			  <button class="calendar-left-arrow">
-       			 ← </button>
-     			 <button class="calendar-right-arrow"> →</button>
-   		 </div>
- 		 </div>
- 		 <ul class="calendar-week">
-  		</ul>
- 		 <ul class="calendar-days">
- 		 </ul>
-		</div>
+            <div class="calendar-container">
+                <div class="calendar-month-arrow-container">
+                    <div class="calendar-month-year-container">
+                        <select class="calendar-years"></select>
+                        <select class="calendar-months">
+                        </select>
+                    </div>
+                    <div class="calendar-month-year">
+                    </div>
+                    <div class="calendar-arrow-container">
+                        <button class="calendar-today-button"></button>
+                        <button class="calendar-left-arrow">
+                        ← </button>
+                        <button class="calendar-right-arrow"> →</button>
+                    </div>
+                </div>
+                <ul class="calendar-week">
+                </ul>
+                <ul class="calendar-days">
+                </ul>
+            </div>
         </section>
 
         <!-- Beállítások -->
         <section id="settings">
-<label for="hourlyRate">Órabér:</label>
-<input type="text" id="hourlyRate" name="hourlyRate" placeholder="Órabér megadása">
-<div style="display: flex; flex-direction: row;">
-    <div style="margin-right: 10px;">
-        <label for="workStartTime">Munkaidő kezdete:</label>
-        <input type="text" id="workStartTime" name="workStartTime" placeholder="Munkaidő kezdete (óra)">
-    </div>
-    <div style="margin-right: 10px;">
-        <label for="workEndTime">Munkaidő vége:</label>
-        <input type="text" id="workEndTime" name="workEndTime" placeholder="Munkaidő vége (óra)">
-    </div>
-    <div>
-        <label for="bonusPercentage">Bónusz százalék:</label>
-        <input type="text" id="bonusPercentage" name="bonusPercentage" placeholder="Bónusz százalék">
-    </div>
-</div>
+            <label for="hourlyRate">Órabér:</label>
+            <input type="text" id="hourlyRate" name="hourlyRate" placeholder="Órabér megadása">
+            <div style="display: flex; flex-direction: row;">
+                <div style="margin-right: 10px;">
+                    <label for="workStartTime">Munkaidő kezdete:</label>
+                    <input type="text" id="workStartTime" name="workStartTime" placeholder="Munkaidő kezdete (óra)">
+                </div>
+                <div style="margin-right: 10px;">
+                    <label for="workEndTime">Munkaidő vége:</label>
+                    <input type="text" id="workEndTime" name="workEndTime" placeholder="Munkaidő vége (óra)">
+                </div>
+                <div>
+                    <label for="bonusPercentage">Bónusz százalék:</label>
+                    <input type="text" id="bonusPercentage" name="bonusPercentage" placeholder="Bónusz százalék">
+                </div>
+            </div>
         </section>
 
         <!-- Fizetés kiszámítása -->
         <section id="payment">
             <!-- Ide kerül majd a fizetés kiszámításának eredménye -->
         </section>
+
+        <!-- Modális ablak -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <label for="workHours">Munkaidő:</label>
+                <input type="text" id="workHours" name="workHours" placeholder="Pl.: 6-14" required><br><br>
+                <button id="saveButton">Mentés</button>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -69,5 +116,43 @@
 
     <!-- JavaScript fájl hivatkozása -->
     <script src="script.js"></script>
+
+    <script>
+        // Modális ablak megjelenítése
+        function showModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        // Modális ablak bezárása
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Ha a felhasználó kattint a bezárás ikonra vagy a háttérre, zárja be a modális ablakot
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Eseménykezelő a napokhoz
+        var days = document.querySelectorAll(".calendar-day");
+        days.forEach(function(day) {
+            day.addEventListener("click", function() {
+                showModal();
+            });
+        });
+
+        // Munkaidő mentése
+        var saveButton = document.getElementById("saveButton");
+        saveButton.addEventListener("click", function() {
+            var workHours = document.getElementById("workHours").value;
+            console.log("Munkaidő: " + workHours);
+            closeModal(); // Modális ablak bezárása
+        });
+    </script>
 </body>
 </html>

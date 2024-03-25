@@ -156,10 +156,13 @@ function removeAllChildren(parent) {
     parent.removeChild(parent.firstChild);
   }
 }
+
 // Modális ablak megjelenítése
-function showModal() {
+function showModal(workHours) {
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
+    var workHoursInput = document.getElementById("workHours");
+    workHoursInput.value = workHours || ""; // Ha van mentett munkaidő, megjelenítjük az input mezőben
 }
 
 // Modális ablak bezárása
@@ -180,7 +183,8 @@ window.onclick = function(event) {
 var days = document.querySelectorAll(".calendar-day");
 days.forEach(function(day) {
     day.addEventListener("click", function() {
-        showModal();
+        var workHours = day.getAttribute("data-work-hours");
+        showModal(workHours);
     });
 });
 
@@ -188,6 +192,9 @@ days.forEach(function(day) {
 var saveButton = document.getElementById("saveButton");
 saveButton.addEventListener("click", function() {
     var workHours = document.getElementById("workHours").value;
-    console.log("Munkaidő: " + workHours);
+    var selectedDay = document.querySelector(".calendar-day-selected");
+    selectedDay.setAttribute("data-work-hours", workHours);
+    console.log("Munkaidő mentve: " + workHours);
     closeModal(); // Modális ablak bezárása
 });
+

@@ -6,43 +6,7 @@
     <title>Fizetés kalkulátor naptárral</title>
     <link rel="stylesheet" href="styles.css"> <!-- CSS fájl hivatkozása -->
     <link rel="stylesheet" href="calendar-styles.css"> <!-- CSS fájl hivatkozása -->
-    <style>
-        /* CSS a modális ablakhoz */
-        .modal {
-            display: none; /* Alapból rejtve van */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5); /* Fekete átlátszó háttér */
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* CSS a gombnak a modális ablak bezárásához */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    <style></style>
 </head>
 <body>
     <header>
@@ -115,44 +79,6 @@
     </footer>
 
     <!-- JavaScript fájl hivatkozása -->
-    <script src="script.js"></script>
-
-    <script>
-        // Modális ablak megjelenítése
-        function showModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "block";
-        }
-
-        // Modális ablak bezárása
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-
-        // Ha a felhasználó kattint a bezárás ikonra vagy a háttérre, zárja be a modális ablakot
-        window.onclick = function(event) {
-            var modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // Eseménykezelő a napokhoz
-        var days = document.querySelectorAll(".calendar-day");
-        days.forEach(function(day) {
-            day.addEventListener("click", function() {
-                showModal();
-            });
-        });
-
-        // Munkaidő mentése
-        var saveButton = document.getElementById("saveButton");
-        saveButton.addEventListener("click", function() {
-            var workHours = document.getElementById("workHours").value;
-            console.log("Munkaidő: " + workHours);
-            closeModal(); // Modális ablak bezárása
-        });
-    </script>
+    <script src="script.js"></script>	</script>
 </body>
 </html>
